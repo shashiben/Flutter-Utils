@@ -1,7 +1,7 @@
 name: flutter_utils
 description: Utils to make developement faster.
 version: 0.0.1
-homepage: https://shashiben.github.io
+homepage: https://github.com/shashiben/Flutter-Utils
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
