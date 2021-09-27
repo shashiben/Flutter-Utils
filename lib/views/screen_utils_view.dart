@@ -1,5 +1,5 @@
+import 'package:dev_utils/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_utils/utils/screen_utils.dart';
 
 class ScreenUtilsView extends StatelessWidget {
   final Widget Function(BuildContext, ScreenUtils) builder;
