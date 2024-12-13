@@ -1,4 +1,4 @@
-## 0.0.2 - 2024-12-13
+## 0.0.3 - 2024-12-13
 
 ### ✨ New Features
 - Added **Validators** for common input types (email, password, phone numbers, etc.) for easier form handling.
@@ -9,6 +9,8 @@
 ### 🛠️ Improvements
 - Optimized utilities for better performance and streamlined code.
 
+## 0.0.2
+- ♻️ refactored code
 
 ## 0.0.1 
 
