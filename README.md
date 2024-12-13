@@ -1,108 +1,138 @@
-## Features
 
-- Get Device Type
-- Get Responsive Type
-- Default Text Styles
-- Easier to get color schemes and all styles
+# 🎉 Flutter Utils 🚀
 
-## Getting started
+Welcome to **Flutter Utils**, your new best friend for Flutter development! 🎨
 
-1. Add this package to your package's `pubspec.yaml` file as described
-   on the installation tab
+This utility package brings **convenience**, **efficiency**, and **simplicity** to your Flutter apps. With a wide variety of extensions, validators, and utilities, we’ve made it easier to build beautiful, responsive, and maintainable Flutter apps with **less boilerplate code**! 🧑‍💻✨
 
-2. Import the libraries
+## Features 🌟
 
-   ```dart
-   import 'package:screenutils/screenutils.dart';
-   ```
+### 🛠️ **Extensions for `BuildContext`**  
+Say goodbye to repetitive code! Our extensions on `BuildContext` give you instant access to useful properties like:
+- 📱 **MediaQuery** – Screen size, orientation, and device pixel ratio.
+- 🎨 **ThemeData** – Colors, typography, and more.
+- 💻 **Breakpoints** – Responsive layout detection (`isMobile`, `isTablet`, `isDesktop`).
+- 🚀 **Navigation** – Push and pop routes easily.
 
-## Usage
+### 🧩 **Widget Padding Extensions**  
+Add **padding** to any widget effortlessly:
+- Uniform padding with `pad()`.
+- Symmetric padding with `paddingSymmetric()`.
+- Custom padding for top, bottom, left, right with `customPadding()`.
 
-You can use it in two ways
+### 📝 **Validators**  
+No more manual validation! 🔥 Validate:
+- 📧 **Emails** – Check for valid email addresses.
+- 🔑 **Passwords** – Ensure passwords are strong enough.
+- 📱 **Phone Numbers** – Validate phone number formats.
+- 🏆 And many more! Quickly add these checks to your forms.
 
-- By declaring a separate variable
+### 🌱 **Additional Utilities**  
+- **Adaptive Padding**: Adjust padding based on the screen width 📐.
+- **Dynamic Font Scaling**: Make text responsive to screen size! 🔤.
+- **Safe Area Helpers**: Easy access to safe area padding & view insets 📱.
 
-```dart
-ScreenUtils screenUtils = ScreenUtils.init(context);
+## 🚀 How It Helps Developers
+
+### 💪 **Less Boilerplate**  
+Stop repeating yourself! Flutter Utils simplifies common tasks with clean and easy-to-use extensions, saving you time and effort. 🕒
+
+### 📱 **Responsive Design Made Easy**  
+Detect screen sizes and orientations with ease. Whether you’re building for **mobile**, **tablet**, or **desktop**, Flutter Utils has you covered. 🖥️📱
+
+### 🔒 **Validate User Input Like a Pro**  
+Forget writing manual validation logic. With just a call, you can validate email, phone numbers, and passwords. Let Flutter Utils handle the validation while you focus on building cool features. 🔐
+
+### 🎨 **Theming and Styling at Your Fingertips**  
+Quickly access theme properties, text styles, and colors without digging into `Theme.of(context)`. Just use the simple extensions to make your UI consistent and stylish! 💅
+
+## 📦 Installation
+
+Add the package to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  flutter_utils: latest_version
 ```
 
-- Or by using a view
+Run `flutter pub get` to install 🚀.
+
+## 🏁 Usage
+
+### 🛠️ **Context Extensions**
+Access media queries, themes, and breakpoints with ease:
 
 ```dart
+import 'package:flutter_utils/flutter_utils.dart';
 
-class ExampleView extends StatelessWidget {
-  const ExampleView({Key? key}) : super(key: key);
-
+class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilsView(
-      builder: (context, screenUtils) => Scaffold(
-        appBar: AppBar(),
-        body: SizedBox(
-          height: screenUtils.height,
-          width: screenUtils.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text("Height: ${screenUtils.height}"),
-              Text("Width: ${screenUtils.width}"),
-              Text("Block Size Horizontal: ${screenUtils.blockSizeHorizontal}"),
-              Text("Block Size Horizontal: ${screenUtils.blockSizeVertical}"),
-              Text("Width: ${screenUtils.width}"),
-              Text("Orientation: ${screenUtils.orientation}"),
-              Text("DeviceType: ${screenUtils.deviceType}"),
-              Text("Responsive Type: ${screenUtils.getResponsiveType()}"),
-              Text("Primary Color: ${screenUtils.primaryColor}"),
-              Text("Background Color: ${screenUtils.backgroundColor}"),
-              Text("Bottom Bar Height: ${screenUtils.bottomBarHeight}"),
-              Text("Status Bar Height: ${screenUtils.statusBarHeight}"),
-              Text("Pixel Ratio: ${screenUtils.pixelRatio}"),
-              Text("Text Scale Factor: ${screenUtils.textScaleFactor}"),
-              Text("Duration Ago is:" +
-                  DateTimeUtils.timeAgoSinceDate(
-                      date: DateTime.now().subtract(const Duration(days: 20)))),
-              Text("Date is: ${DateTimeUtils.getDate()}"),
-              Text("Month is: ${DateTimeUtils.getMonth()}"),
-              Text("Short Month is: ${DateTimeUtils.getMonth(isShort: true)}"),
-              Text("Time is: ${DateTimeUtils.getTime()}"),
-              Text("Week Day is: ${DateTimeUtils.getWeekDay()}"),
-              Text("Whole Date is: ${DateTimeUtils.getWholeDate()}"),
-              Text(
-                  "Whole Date With Time is: ${DateTimeUtils.getWholeDate(isIncludeTime: true)}"),
-              Text(
-                "Headline Text Style",
-                style: screenUtils.headline,
-              ),
-              Text(
-                "Title Text Style",
-                style: screenUtils.title,
-              ),
-              Text(
-                "Body Text Style",
-                style: screenUtils.body,
-              ),
-              Text(
-                "Button Text Style",
-                style: screenUtils.buttonTextStyle,
-              ),
-            ],
-          ),
-        ),
+    return Container(
+      color: context.primaryColor, // 🎨 Access theme colors!
+      width: context.width * 0.8,  // 📏 Use 80% of screen width
+      height: context.height * 0.5,
+      child: Text(
+        'Hello, Flutter!',
+        style: context.textTheme.headlineMedium, // 🖋️ Apply text styles
       ),
     );
   }
 }
 ```
 
-## Demo
+### 🧩 **Widget Padding Extensions**
+Add padding in a breeze:
 
-![Demo 1](assets/example.gif)
-![Demo 1](assets/example.gif)
+```dart
+import 'package:flutter_utils/flutter_utils.dart';
 
-## Additional information
+Text('Padded Text').uniformPadding(16); // 💪 Add uniform padding of 16
+Text('Custom Padding').customPadding(left: 10, top: 5); // 🎯 Add custom padding
+```
 
-- Change title of page and its primary color
-- Use it for faster developement
-- Access Theme data faster
+### 📝 **Validators**
+Validate common input fields:
+
+```dart
+import 'package:flutter_utils/flutter_utils.dart';
+
+String email = 'test@example.com';
+if (!email.isValidEmail()) {
+  print('Invalid email address! 📧');
+}
+
+String password = 'P@ssw0rd';
+if (!password.isStrongPassword()) {
+  print('Weak password! 🔑');
+}
+```
+
+### 🌱 **Breakpoints**
+Create responsive layouts based on screen size:
+
+```dart
+import 'package:flutter_utils/flutter_utils.dart';
+
+if (context.isMobile) {
+  print('Mobile layout detected! 📱');
+} else if (context.isTablet) {
+  print('Tablet layout detected! 💻');
+}
+```
+
+## 📚 Documentation
+
+Check out the API docs for a complete list of available extensions and methods. With Flutter Utils, you have everything you need to streamline your development process and create beautiful, responsive apps faster than ever! 🚀
+
+## 🤝 Contributing
+
+We welcome contributions! Feel free to fork the repo, create a pull request, or report any issues you find. Let’s make this package even better, together! 🌍
+
+## 🧑‍💻 License
+
+This package is distributed under the MIT License. See [LICENSE](./LICENSE) for details. ✨
+
+---
+
+Let me know if you'd like to add any other specific sections or features, and I can enhance the `README` further!

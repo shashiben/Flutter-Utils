@@ -57,4 +57,31 @@ extension StringExtension on String {
   bool isBlank() {
     return trim().isEmpty;
   }
+   bool get isStrongPassword {
+    final password = this;
+    final hasUpperCase = RegExp(r'[A-Z]').hasMatch(password);
+    final hasLowerCase = RegExp(r'[a-z]').hasMatch(password);
+    final hasDigits = RegExp(r'\d').hasMatch(password);
+    final hasSpecialCharacters = RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(password);
+    final isValidLength = password.length >= 8;
+
+    return hasUpperCase && hasLowerCase && hasDigits && hasSpecialCharacters && isValidLength;
+  }
+
+  // Optionally, provide a helper to give feedback
+  String get passwordStrengthFeedback {
+    if (length < 8) {
+      return "Password too short, must be at least 8 characters.";
+    } else if (!RegExp(r'[A-Z]').hasMatch(this)) {
+      return "Password must contain at least one uppercase letter.";
+    } else if (!RegExp(r'[a-z]').hasMatch(this)) {
+      return "Password must contain at least one lowercase letter.";
+    } else if (!RegExp(r'\d').hasMatch(this)) {
+      return "Password must contain at least one number.";
+    } else if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(this)) {
+      return "Password must contain at least one special character.";
+    } else {
+      return "Password is strong!";
+    }
+  }
 }
