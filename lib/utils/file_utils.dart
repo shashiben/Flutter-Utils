@@ -1,63 +1,41 @@
 import 'dart:math';
 
+/// A Utility class for file-related operations.
 class FileUtils {
+  /// Converts a file size in bytes to a human-readable format.
+  ///
+  /// The [size] parameter specifies the file size in bytes.
+  /// The optional [round] parameter specifies the number of decimal places
+  /// to include in the output (default is 2).
+  ///
+  /// Examples:
+  /// ```dart
+  /// FileUtils.getFileSize(1024); // Returns '1.00 KB'
+  /// FileUtils.getFileSize(1048576, 0); // Returns '1 MB'
+  /// ```
   static String getFileSize(double size, [int round = 2]) {
-    /** 
-   * The optional parameter [round] specifies the number 
-   * of digits after comma/point (default is 2)
-   */
-    double divider = 1000;
-    int _size;
+    const double divider = 1000;
+    int size0;
     try {
-      _size = int.parse(size.toString());
+      size0 = int.parse(size.toString());
     } catch (e) {
-      throw ArgumentError('Can\'t determine the size, Error is: $e');
+      throw ArgumentError("Can't determine the size. Error: $e");
     }
 
-    if (_size < divider) {
-      return '$_size B';
-    }
-
-    if (_size < pow(divider, 2) && _size % divider == 0) {
-      return '${(_size / divider).toStringAsFixed(0)} KB';
-    }
-
-    if (_size < divider * divider) {
-      return '${(_size / divider).toStringAsFixed(round)} KB';
-    }
-
-    if (_size < pow(divider, 3) && _size % divider == 0) {
-      return '${(_size / (pow(divider, 2))).toStringAsFixed(0)} MB';
-    }
-
-    if (_size < pow(divider, 3)) {
-      return '${(_size / pow(divider, 2)).toStringAsFixed(round)} MB';
-    }
-
-    if (_size < pow(divider, 4) && _size % divider == 0) {
-      return '${(_size / (pow(divider, 3))).toStringAsFixed(0)} GB';
-    }
-
-    if (_size < pow(divider, 4)) {
-      return '${(_size / pow(divider, 3)).toStringAsFixed(round)} GB';
-    }
-
-    if (_size < pow(divider, 5) && _size % divider == 0) {
-      num r = _size / pow(divider, 4);
-      return '${r.toStringAsFixed(0)} TB';
-    }
-
-    if (_size < pow(divider, 5)) {
-      num r = _size / pow(divider, 4);
-      return '${r.toStringAsFixed(round)} TB';
-    }
-
-    if (_size < pow(divider, 6) && _size % divider == 0) {
-      num r = _size / pow(divider, 5);
-      return '${r.toStringAsFixed(0)} PB';
+    if (size0 < divider) {
+      return '$size0 B';
+    } else if (size0 < pow(divider, 2)) {
+      return '${(size0 / divider).toStringAsFixed(round)} KB';
+    } else if (size0 < pow(divider, 3)) {
+      return '${(size0 / pow(divider, 2)).toStringAsFixed(round)} MB';
+    } else if (size0 < pow(divider, 4)) {
+      return '${(size0 / pow(divider, 3)).toStringAsFixed(round)} GB';
+    } else if (size0 < pow(divider, 5)) {
+      return '${(size0 / pow(divider, 4)).toStringAsFixed(round)} TB';
+    } else if (size0 < pow(divider, 6)) {
+      return '${(size0 / pow(divider, 5)).toStringAsFixed(round)} PB';
     } else {
-      num r = _size / divider / divider / divider / divider / divider;
-      return '${r.toStringAsFixed(round)} PB';
+      return '${(size0 / pow(divider, 6)).toStringAsFixed(round)} EB';
     }
   }
 }
