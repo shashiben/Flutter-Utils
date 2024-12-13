@@ -1,4 +1,3 @@
-
 # 🎉 Flutter Utils 🚀
 
 Welcome to **Flutter Utils**, your new best friend for Flutter development! 🎨
@@ -32,6 +31,9 @@ No more manual validation! 🔥 Validate:
 - **Dynamic Font Scaling**: Make text responsive to screen size! 🔤.
 - **Safe Area Helpers**: Easy access to safe area padding & view insets 📱.
 
+### 🎨 **TextStyle Extensions**  
+Say goodbye to repetitive `TextStyle` configurations! Get access to a range of text style extensions that save time and boost productivity. Learn more in the [TextStyleExtensions documentation](docs/TextStyleExtensions.md).
+
 ## 🚀 How It Helps Developers
 
 ### 💪 **Less Boilerplate**  
@@ -53,86 +55,3 @@ Add the package to your `pubspec.yaml`:
 ```yaml
 dependencies:
   flutter_utils: latest_version
-```
-
-Run `flutter pub get` to install 🚀.
-
-## 🏁 Usage
-
-### 🛠️ **Context Extensions**
-Access media queries, themes, and breakpoints with ease:
-
-```dart
-import 'package:flutter_utils/flutter_utils.dart';
-
-class MyWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: context.primaryColor, // 🎨 Access theme colors!
-      width: context.width * 0.8,  // 📏 Use 80% of screen width
-      height: context.height * 0.5,
-      child: Text(
-        'Hello, Flutter!',
-        style: context.textTheme.headlineMedium, // 🖋️ Apply text styles
-      ),
-    );
-  }
-}
-```
-
-### 🧩 **Widget Padding Extensions**
-Add padding in a breeze:
-
-```dart
-import 'package:flutter_utils/flutter_utils.dart';
-
-Text('Padded Text').uniformPadding(16); // 💪 Add uniform padding of 16
-Text('Custom Padding').customPadding(left: 10, top: 5); // 🎯 Add custom padding
-```
-
-### 📝 **Validators**
-Validate common input fields:
-
-```dart
-import 'package:flutter_utils/flutter_utils.dart';
-
-String email = 'test@example.com';
-if (!email.isValidEmail()) {
-  print('Invalid email address! 📧');
-}
-
-String password = 'P@ssw0rd';
-if (!password.isStrongPassword()) {
-  print('Weak password! 🔑');
-}
-```
-
-### 🌱 **Breakpoints**
-Create responsive layouts based on screen size:
-
-```dart
-import 'package:flutter_utils/flutter_utils.dart';
-
-if (context.isMobile) {
-  print('Mobile layout detected! 📱');
-} else if (context.isTablet) {
-  print('Tablet layout detected! 💻');
-}
-```
-
-## 📚 Documentation
-
-Check out the API docs for a complete list of available extensions and methods. With Flutter Utils, you have everything you need to streamline your development process and create beautiful, responsive apps faster than ever! 🚀
-
-## 🤝 Contributing
-
-We welcome contributions! Feel free to fork the repo, create a pull request, or report any issues you find. Let’s make this package even better, together! 🌍
-
-## 🧑‍💻 License
-
-This package is distributed under the MIT License. See [LICENSE](./LICENSE) for details. ✨
-
----
-
-Let me know if you'd like to add any other specific sections or features, and I can enhance the `README` further!
