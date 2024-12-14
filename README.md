@@ -1,4 +1,8 @@
-# 🎉 Flutter Utils 🚀
+# 🎉 Flutter Utils 🚀  
+[![Pub Version](https://img.shields.io/pub/v/dev_utils)](https://pub.dev/packages/dev_utils) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Pub Points](https://img.shields.io/pub/points/dev_utils)](https://pub.dev/packages/dev_utils/score) [![Likes](https://img.shields.io/pub/likes/dev_utils)](https://pub.dev/packages/dev_utils)
+
+
+<a href="https://www.buymeacoffee.com/shashiben" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 Welcome to **Flutter Utils**, your new best friend for Flutter development! 🎨
 

@@ -1,5 +1,5 @@
 name: dev_utils
-description: Utils to make developement faster.
+description: A collection of powerful Flutter utilities and extensions designed to speed up development, enhance productivity, and simplify common tasks.
 version: 0.0.3
 homepage: https://github.com/shashiben/Flutter-Utils
 environment:
