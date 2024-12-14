@@ -6,7 +6,7 @@ extension PaddingExtension on Widget {
   ///
   /// [padding] specifies the amount of padding to apply on all sides.
   /// [key] is an optional identifier for the padding widget.
-  Widget uniformPadding(double padding, {Key? key}) {
+  Widget padding(double padding, {Key? key}) {
     return Padding(
       padding: EdgeInsets.all(padding),
       key: key,
