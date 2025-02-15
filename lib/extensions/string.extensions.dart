@@ -64,8 +64,9 @@ extension StringExtensions on String {
     final hasUpperCase = RegExp(r'[A-Z]').hasMatch(password);
     final hasLowerCase = RegExp(r'[a-z]').hasMatch(password);
     final hasDigits = RegExp(r'\d').hasMatch(password);
-    final hasSpecialCharacters =
-        RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(password);
+    final hasSpecialCharacters = RegExp(
+      r'[!@#$%^&*(),.?":{}|<>]',
+    ).hasMatch(password);
     final isValidLength = password.length >= 8;
 
     return hasUpperCase &&

@@ -28,7 +28,7 @@ enum DeviceType {
   harmonyos,
 
   /// A device with an unspecified or unknown operating system.
-  unknown
+  unknown,
 }
 
 /// Represents different types of screens based on form factor.
@@ -43,7 +43,7 @@ enum ScreenType {
   desktop,
 
   /// A screen with foldable characteristics.
-  foldable
+  foldable,
 }
 
 /// Represents responsive breakpoints used for layout designs.
@@ -64,5 +64,5 @@ enum ResponsiveType {
   xl,
 
   /// Extra extra large screens (e.g., ultra-wide monitors or TVs).
-  xxl
+  xxl,
 }

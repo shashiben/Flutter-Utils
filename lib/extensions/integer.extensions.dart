@@ -1,39 +1,64 @@
 import 'package:flutter/widgets.dart';
 
-/// Extension for adding custom utilities to [num] type for widget-related sizing.
+/// ✨ Extension for adding custom utilities to the [num] type for widget-related sizing.
 extension WidgetExtensions on num {
-  /// Creates a vertical `SizedBox` with the height set to the value of this number.
+  /// 📏 Creates a vertical `SizedBox` with the given height.
   ///
-  /// This is useful for adding vertical space in widgets.
+  /// This method is useful for adding **vertical spacing** between widgets.
   ///
-  /// Example:
+  /// - The height of the `SizedBox` is set to the value of this number.
+  ///
+  /// 📌 Example:
   /// ```dart
-  /// 10.verticalBox // Creates a SizedBox with height 10.
+  /// Column(
+  ///   children: [
+  ///     Text('Above'),
+  ///     10.verticalBox, // Adds 10 pixels of vertical spacing
+  ///     Text('Below'),
+  ///   ],
+  /// );
   /// ```
   Widget get verticalBox => SizedBox(height: toDouble());
 
-  /// Creates a horizontal `SizedBox` with the width set to the value of this number.
+  /// 📏 Creates a horizontal `SizedBox` with the given width.
   ///
-  /// This is useful for adding horizontal space in widgets.
+  /// This method is useful for adding **horizontal spacing** between widgets.
   ///
-  /// Example:
+  /// - The width of the `SizedBox` is set to the value of this number.
+  ///
+  /// 📌 Example:
   /// ```dart
-  /// 20.horizontalBox // Creates a SizedBox with width 20.
+  /// Row(
+  ///   children: [
+  ///     Icon(Icons.star),
+  ///     8.horizontalBox, // Adds 8 pixels of horizontal spacing
+  ///     Text('Favorite'),
+  ///   ],
+  /// );
   /// ```
   Widget get horizontalBox => SizedBox(width: toDouble());
 }
 
-/// Extension for adding asynchronous utilities to [num] type for delayed operations.
+/// ✨ Extension for adding asynchronous utilities to the [num] type for delayed operations.
 extension AsyncExtensions on num {
-  /// Delays the operation for a given duration.
+  /// ⏳ Delays execution for the given number of seconds or milliseconds.
   ///
-  /// This can be used for simulating a delay in async operations that involve numbers.
+  /// This method allows you to delay execution by using a **numeric value** directly.
   ///
-  /// Example:
+  /// - If the number is an `int`, it is treated as **seconds**.
+  /// - If the number is a `double`, it is treated as **fractional seconds**.
+  ///
+  /// 📌 Example:
   /// ```dart
-  /// await 5.delayed(Duration(seconds: 2)); // Waits for 2 seconds.
+  /// await 2.delayed(); // Waits for 2 seconds
+  /// await 1.5.delayed(); // Waits for 1.5 seconds (1500ms)
+  /// print('Executed after delay');
   /// ```
-  Future delayed(Duration duration) async {
-    await Future.delayed(duration);
+  ///
+  /// **Use case:**
+  /// - Simulating network requests or async operations.
+  /// - Adding delays before UI updates, animations, or API calls.
+  Future<void> delayed() async {
+    await Future.delayed(Duration(milliseconds: (this * 1000).toInt()));
   }
 }

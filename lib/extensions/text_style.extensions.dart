@@ -234,11 +234,15 @@ extension TextStyleExtensions on TextStyle {
   /// ```dart
   /// Text('Underlined Text with Style', style: TextStyle().textDecoration(TextDecoration.underline, color: Colors.red));
   /// ```
-  TextStyle textDecoration(TextDecoration v,
-          {Color? color, TextDecorationStyle? style, double? thickness}) =>
-      copyWith(
-          decoration: v,
-          decorationColor: color,
-          decorationStyle: style,
-          decorationThickness: thickness);
+  TextStyle textDecoration(
+    TextDecoration v, {
+    Color? color,
+    TextDecorationStyle? style,
+    double? thickness,
+  }) => copyWith(
+    decoration: v,
+    decorationColor: color,
+    decorationStyle: style,
+    decorationThickness: thickness,
+  );
 }
