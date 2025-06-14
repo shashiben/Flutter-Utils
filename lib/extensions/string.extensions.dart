@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-
 extension StringExtensions on String {
   /// Returns the string with the first letter capitalized.
   ///
@@ -179,8 +177,4 @@ extension StringExtensions on String {
   /// name.isNullOrEmpty;  // true
   /// ```
   bool get isNullOrEmpty => isEmpty;
-}
-
-extension WidgetExtensions on String {
-  Widget get text => Text(this);
 }
